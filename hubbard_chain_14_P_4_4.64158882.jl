@@ -113,7 +113,9 @@ let
     sweeps = Sweeps(8)
     setmaxdim!(sweeps,)
     E,ψ  = dmrg(H,ψ,sweeps)
-    
+
+    var = inner(H,ψ,H,ψ) - E^2
+    @show var
 
     #=
     #------------------------

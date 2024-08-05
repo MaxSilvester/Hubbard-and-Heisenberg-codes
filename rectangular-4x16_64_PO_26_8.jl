@@ -119,8 +119,10 @@ let
     dims = [4,8,16,32,64,128,256,500,750,750,1000,1000,2000,2000,3000,3000,4000,4000]
     sweeps = Sweeps(length(dims))
     setmaxdim!(sweeps,dims...)
-    
-    E,psi = dmrg(H,ψ,sweeps)
-    
+	
+    E,ψ = dmrg(H,ψ,sweeps)
+
+    var = inner(H,ψ,H,ψ) - E^2
+    @show var
 end
 
